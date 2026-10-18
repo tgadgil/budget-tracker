@@ -1,9 +1,9 @@
 public class BudgetCategory {
     private String cat;
-    private int budget;
+    private double budget;
     private double spent;
 
-    public BudgetCategory(String cat, int budget, double spent) {
+    public BudgetCategory(String cat, double budget, double spent) {
         this.cat = cat;
         this.budget = budget;
         this.spent = spent;
@@ -13,7 +13,7 @@ public class BudgetCategory {
         return cat;
     }
 
-    public int getBudget() {
+    public double getBudget() {
         return budget;
     }
 
@@ -22,9 +22,9 @@ public class BudgetCategory {
     }
 
     public String toString() {
-        String catStyle = cat.toUpperCase();
-        String budgetStyle = "Budget: " + budget;
-        String actualStyle = "Actual: " + spent; 
+        String catStyle = "\n=====================\n" + cat.toUpperCase() + "\n---------------------";
+        String budgetStyle = "Budget: $" + budget;
+        String actualStyle = "Actual: $" + spent; 
         String report = catStyle + "\n" + budgetStyle + "\n" + actualStyle;
         return report;
     }
