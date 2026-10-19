@@ -1,16 +1,19 @@
 import java.util.List;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class BudgetApp {
     public static void main(String[] args) {
 
-        BudgetCategory Groceries = new BudgetCategory("Groceries", 1200, 250.55);
+    /*  BudgetCategory Groceries = new BudgetCategory("Groceries", 1200, 250.55);
         //testing
         System.out.println(Groceries.getCat());
         System.out.println(Groceries.getBudget());
         System.out.println(Groceries.getSpent());
         System.out.println(Groceries);
-        
+    */    
+        //ArrayList for budget categories
+        List<BudgetCategory> categories = new ArrayList<>();
 
         Scanner scan = new Scanner(System.in);
 
@@ -20,14 +23,20 @@ public class BudgetApp {
             double limit = scan.nextDouble();
             double spent = scan.nextDouble();
 
+            //new budgetcategory object
+            BudgetCategory cat1 = new BudgetCategory(category, limit, spent);
+            //add new objects to categories ArrayList
+            categories.add(cat1);
+
             // Consume \n after spent input 
             if(scan.hasNextLine()) scan.nextLine();
 
-            String limitString = String.format("$%.2f", limit);
-            String spentString = String.format("$%.2f", spent);
-            System.out.println("The budget limit for " + category + " was: " + limitString + 
-                               " but the actual spend was " + spentString);
+            // String limitString = String.format("$%.2f", limit);
+            // String spentString = String.format("$%.2f", spent);
+            // System.out.println("The budget limit for " + category + " was: " + limitString + 
+            //                     " but the actual spend was " + spentString);
         }
+        System.out.println(categories);
     }
 
     /**
