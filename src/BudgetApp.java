@@ -73,4 +73,5 @@ public class BudgetApp {
         }
         return total;
     }
+
 }

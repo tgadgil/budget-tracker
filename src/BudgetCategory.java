@@ -25,7 +25,8 @@ public class BudgetCategory implements Comparable<BudgetCategory>{
         String catStyle = "\n=====================\n" + cat.toUpperCase() + "\n---------------------";
         String budgetStyle = "Budget: $" + budget;
         String actualStyle = "Actual: $" + spent; 
-        String report = catStyle + "\n" + budgetStyle + "\n" + actualStyle;
+        String budgetPercent = "Budget Used: " + String.format("%.2f", budgetUtilizationPercentage()) + "%";
+        String report = catStyle + "\n" + budgetStyle + "\n" + actualStyle + "\n" + budgetPercent;
         return report;
     }
 
@@ -38,6 +39,9 @@ public class BudgetCategory implements Comparable<BudgetCategory>{
             return 0;
         }
         //partner did else statement differently and returns outside the ifs
-    }   
+    }
+    public double budgetUtilizationPercentage() {
+        return spent/budget * 100;
+    }
 
 }
