@@ -1,6 +1,7 @@
 import java.util.List;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class BudgetApp {
     public static void main(String[] args) {
@@ -11,7 +12,7 @@ public class BudgetApp {
         System.out.println(Groceries.getBudget());
         System.out.println(Groceries.getSpent());
         System.out.println(Groceries);
-    */  
+
         //wave3 test
         BudgetCategory groceries = new BudgetCategory("Groceries", 400, 375);
         BudgetCategory diningOut = new BudgetCategory("Dining Out", 120, 185);
@@ -19,6 +20,7 @@ public class BudgetApp {
         System.out.println("Groceries vs Dining Out: " + groceries.compareTo(diningOut));
         System.out.println("Dining Out vs Groceries: " + diningOut.compareTo(groceries));
         System.out.println("Groceries vs Groceries: " + groceries.compareTo(groceries));
+    */
 
         //ArrayList for budget categories
         List<BudgetCategory> categories = new ArrayList<>();
@@ -44,7 +46,11 @@ public class BudgetApp {
             // System.out.println("The budget limit for " + category + " was: " + limitString + 
             //                     " but the actual spend was " + spentString);
         }
+        //sorted by budget difference
+        Collections.sort(categories, Collections.reverseOrder());
+
         System.out.println(categories);
+        System.out.println("Budget difference: $" + budgetDifference(categories));
     }
 
     /**
@@ -60,9 +66,11 @@ public class BudgetApp {
      * @return the total amount over/under budget
      */
     public static int budgetDifference(List<BudgetCategory> categories) {
-        // TODO: You will implement this method in Wave 4
-        // Note that this method SHOULD NOT have a print statement.
-        // It should instead return the value.
-        return -1;
+        int total = 0;
+
+        for (BudgetCategory category : categories) {
+            total += category.getSpent() - category.getBudget();
+        }
+        return total;
     }
 }
