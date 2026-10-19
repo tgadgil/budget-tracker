@@ -1,4 +1,4 @@
-public class BudgetCategory {
+public class BudgetCategory implements Comparable<BudgetCategory>{
     private String cat;
     private double budget;
     private double spent;
@@ -28,4 +28,16 @@ public class BudgetCategory {
         String report = catStyle + "\n" + budgetStyle + "\n" + actualStyle;
         return report;
     }
+
+    public int compareTo(BudgetCategory other) {
+        if((this.spent - this.budget) < (other.spent - other.budget)) {
+            return -1;
+        } else if ((this.spent - this.budget) > (other.spent - other.budget)) {
+            return 1;
+        } else {
+            return 0;
+        }
+        //partner did else statement differently and returns outside the ifs
+    }   
+
 }

@@ -11,7 +11,15 @@ public class BudgetApp {
         System.out.println(Groceries.getBudget());
         System.out.println(Groceries.getSpent());
         System.out.println(Groceries);
-    */    
+    */  
+        //wave3 test
+        BudgetCategory groceries = new BudgetCategory("Groceries", 400, 375);
+        BudgetCategory diningOut = new BudgetCategory("Dining Out", 120, 185);
+
+        System.out.println("Groceries vs Dining Out: " + groceries.compareTo(diningOut));
+        System.out.println("Dining Out vs Groceries: " + diningOut.compareTo(groceries));
+        System.out.println("Groceries vs Groceries: " + groceries.compareTo(groceries));
+
         //ArrayList for budget categories
         List<BudgetCategory> categories = new ArrayList<>();
 
